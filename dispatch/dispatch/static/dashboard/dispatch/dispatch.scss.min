@@ -1,0 +1,453 @@
+/*
+Licensed to the Apache Software Foundation (ASF) under one
+or more contributor license agreements.  See the NOTICE file
+distributed with this work for additional information
+regarding copyright ownership.  The ASF licenses this file
+to you under the Apache License, Version 2.0 (the
+"License"); you may not use this file except in compliance
+with the License.  You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing,
+software distributed under the License is distributed on an
+"AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+KIND, either express or implied.  See the License for the
+specific language governing permissions and limitations
+under the License.
+*/
+
+@import "https://cdn.rawgit.com/angular-ui/bower-ui-grid/master/ui-grid.min.css";
+@import "https://cdn.rawgit.com/mar10/dynatree/master/dist/skin/ui.dynatree.css";
+
+#paneSep {
+	background-color: #FFF;
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 200px;
+    width: 6px;
+    cursor: e-resize;
+    border-right: 1px solid #CCC;
+}
+
+#paneLeft {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    width: 200px;
+    overflow: auto;
+}
+
+#paneRight {
+    position: absolute;
+    top: 50px;
+    bottom: 0;
+    left: 206px;
+    right: 0;
+    overflow: hidden;
+    margin: 0 1em;
+}
+
+.ui-grid-viewport {
+    overflow: auto;
+}
+div.qdr-attributes span.dynatree-selected a {
+    background-color: #e0e0ff;
+}
+
+.qdr-overview.pane.left span:not(.dynatree-has-children) .dynatree-icon:before,
+.qdr-attributes.pane.left span:not(.dynatree-has-children) .dynatree-icon:before {
+    color: green;
+}
+
+span:not(.dynatree-has-children).address .dynatree-icon:before,
+span:not(.dynatree-has-children).router\.address .dynatree-icon:before {
+    content: "\f0ac";
+}
+span:not(.dynatree-has-children).address.mobile .dynatree-icon:before,
+span:not(.dynatree-has-children).router\.address.mobile .dynatree-icon:before {
+    content: "\f109";
+}
+span:not(.dynatree-has-children).address.internal.mobile .dynatree-icon:before,
+span:not(.dynatree-has-children).router\.address.internal.mobile .dynatree-icon:before {
+    content: "\f0ac";
+}
+span:not(.dynatree-has-children).address.router .dynatree-icon:before,
+span:not(.dynatree-has-children).router\.address.router .dynatree-icon:before {
+    content: "\f047";
+}
+
+span.address-link .dynatree-icon:before {
+    content: "\f0ac";
+}
+
+span:not(.dynatree-has-children).connection.external .dynatree-icon:before {
+    content: "\f109";
+}
+span:not(.dynatree-has-children).connection.normal .dynatree-icon:before {
+    content: "\f08e";
+}
+span:not(.dynatree-has-children).connection.external.quiesced .dynatree-icon:before {
+	content: "\f14c";
+	color: red;
+}
+span:not(.dynatree-has-children).connection.inter-router .dynatree-icon:before {
+     content: "\f07e";
+}
+span:not(.dynatree-has-children).no-data .dynatree-icon:before {
+     content: "\f05e";
+     color: red !important;
+}
+span:not(.dynatree-has-children).loading .dynatree-icon:before {
+     content: "\f254";
+}
+span:not(.dynatree-has-children).connector .dynatree-icon:before {
+     content: "\f126";
+}
+span:not(.dynatree-has-children).container .dynatree-icon:before {
+     content: "\f16c";
+}
+span:not(.dynatree-has-children).log .dynatree-icon:before {
+     content: "\f0f6";
+}
+span:not(.dynatree-has-children).router\.node .dynatree-icon:before {
+     content: "\f013";
+}
+span:not(.dynatree-has-children).link.inter-router .dynatree-icon:before,
+span:not(.dynatree-has-children).router\.link.inter-router .dynatree-icon:before{
+     content: "\f07e";
+}
+span:not(.dynatree-has-children).link.endpoint .dynatree-icon:before,
+span:not(.dynatree-has-children).router\.link.endpoint .dynatree-icon:before{
+     content: "\f109";
+}
+span:not(.dynatree-has-children).link.console .dynatree-icon:before,
+span:not(.dynatree-has-children).router\.link.console .dynatree-icon:before {
+     content: "\f108";
+}
+span:not(.dynatree-has-children).listener .dynatree-icon:before {
+     content: "\f025";
+}
+span:not(.dynatree-has-children).connection .dynatree-icon:before {
+     content: "\f07e";
+}
+span:not(.dynatree-has-children).connection.console .dynatree-icon:before {
+     content: "\f108";
+}
+span:not(.dynatree-has-children).waypoint .dynatree-icon:before {
+     content: "\f0ec";
+}
+span:not(.dynatree-has-children).router .dynatree-icon:before {
+     content: "\f047";
+}
+span:not(.dynatree-has-children).fixedAddress .dynatree-icon:before {
+     content: "\f015";
+}
+span:not(.dynatree-has-children).linkRoutePattern .dynatree-icon:before {
+     content: "\f039";
+}
+span:not(.dynatree-has-children).allocator .dynatree-icon:before {
+     content: "\f170";
+}
+
+span.filter-icon {
+	padding-left: 1em;
+}
+
+button.filter-close {
+    width: 15px;
+    height: 20px;
+    padding: 0;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}
+
+div.filter-title h6 {
+	margin: 0 0 0.5em 0;
+}
+
+.links button.btn-filter {
+	padding: 0 1em 0 0;
+    margin-left: 1em;
+    font-size: 1em;
+}
+
+button.btn-filter {
+	float: right;
+}
+span.dynatree-expanded button.btn-filter,
+a.dynatree-title:hover button.btn-filter {
+ 	visibility: visible;
+}
+
+div.hdash-button a {
+	color: white;
+}
+
+.linkDirIn {
+	color: red;
+	background-color: #f3f3f3;
+}
+
+.linkDirOut {
+	color: blue;
+	background-color: white;
+}
+
+ul.dynatree-container {
+  background: inherit;
+}
+ul.dynatree-container li {
+  background: inherit;
+}
+
+span.dynatree-icon {
+  position: relative;
+  top: -2px;
+  font-size: 17px;
+}
+
+span:not(.dynatree-has-children) .dynatree-icon:before {
+  font-family: FontAwesome;
+  content: "\f013";
+}
+
+ul.inline,
+ol.inline {
+  margin-left: 0;
+  list-style: none;
+}
+
+ul.inline > li,
+ol.inline > li {
+  display: inline-block;
+  padding-right: 2px;
+  padding-left: 2px;
+}
+
+[class^="dynatree-folder icon-"], [class*=" dynatree-folder icon-"] {
+
+}
+
+[class^="dynatree-folder icon-"]:before, [class*=" dynatree-folder icon-"]:before {
+  font-size: 17px;
+  margin-left: 18px;
+}
+
+
+[class^="dynatree-folder icon-"], [class*=" dynatree-folder icon-"] .dynatree-connector {
+  display: none;
+}
+
+[class^="dynatree-folder icon-"], [class*=" dynatree-folder icon-"] .dynatree-icon {
+  display: none;
+}
+
+ul.dynatree-container {
+  overflow: visible;
+}
+
+ul.dynatree-container {
+  background: inherit;
+}
+ul.dynatree-container li {
+  background: inherit;
+}
+
+i.expandable-indicator {
+  color: #666;
+}
+
+span.dynatree-expander {
+  color: #728271;
+}
+
+span.dynatree-icon {
+  color: #EECA7C;
+}
+span:not(.dynatree-has-children) .dynatree-icon:before {
+  color: gray;
+}
+
+span.dynatree-empty,
+span.dynatree-vline,
+span.dynatree-connector,
+span.dynatree-expander,
+span.dynatree-icon,
+span.dynatree-checkbox,
+span.dynatree-radio,
+span.dynatree-drag-helper-img,
+#dynatree-drop-marker
+{
+    font-family: FontAwesome;
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    text-decoration: inherit;
+    background-image: none;
+    vertical-align: middle;
+}
+
+.dynatree-checkbox {
+    color: #888888
+}
+
+/* Dynatree checkbox */
+span.dynatree-checkbox:before
+{
+    margin-top: 1px;
+    background-position: 0 0;
+    cursor: pointer;
+    content: "";
+}
+
+span.dynatree-checkbox:before:hover
+{
+    background-position: 0 0;
+    content: "";
+}
+
+.dynatree-selected span.dynatree-checkbox:before
+{
+    margin-top: 1px;
+    background-position: 0 0;
+    cursor: pointer;
+    content: "\f00c";
+}
+
+.dynatree-selected span.dynatree-checkbox:before:hover
+{
+    background-position: 0 0;
+    content: "\f00c";
+}
+
+
+.dynatree-expander {
+    color: #888888
+}
+
+/* Dynatree expander */
+span.dynatree-expander:before
+{
+    margin-top: 1px;
+    background-position: 0 0;
+    cursor: pointer;
+    content: "\f054";
+}
+
+span.dynatree-expander:before:hover
+{
+    background-position: 0 0;
+    content: "\f054";
+}
+
+.dynatree-exp-e span.dynatree-expander:before,  /* Expanded, not delayed, not last sibling */
+.dynatree-exp-ed span.dynatree-expander:before,  /* Expanded, delayed, not last sibling */
+.dynatree-exp-el span.dynatree-expander:before,  /* Expanded, not delayed, last sibling */
+.dynatree-exp-edl span.dynatree-expander:before  /* Expanded, delayed, last sibling */
+{
+    background-position: 0 0;
+    content: "\f078";
+}
+.dynatree-exp-e span.dynatree-expander:before:hover,  /* Expanded, not delayed, not last sibling */
+.dynatree-exp-ed span.dynatree-expander:before:hover,  /* Expanded, delayed, not last sibling */
+.dynatree-exp-el span.dynatree-expander:before:hover,  /* Expanded, not delayed, last sibling */
+.dynatree-exp-edl span.dynatree-expander:before:hover  /* Expanded, delayed, last sibling */
+{
+    background-position: 0 0;
+    content: "\f0da";
+}
+
+/* closed folder */
+.dynatree-ico-cf span.dynatree-icon:before {
+    background-position: 0 0;
+    content: "\f07b";
+}
+
+/* open folder */
+.dynatree-ico-ef span.dynatree-icon:before {
+    background-position: 0 0;
+    content: "\f07c";
+}
+
+span.dynatree-icon:before {
+    background-position: 0px 0px;
+    content: "\f013";
+}
+
+span.dynatree-folder a {
+    font-weight: normal;
+}
+
+div.treeContainer ul.dynatree-container {
+	border: 0px;
+}
+
+#linkFilter {
+	display: none;
+	padding: 0.5em;
+	border: 1px solid grey;
+	background-color: #F0F0F0;
+	position: absolute;
+	z-index: 100;
+	right: 1em;
+}
+
+span.filter-icon {
+	padding-left: 1em;
+}
+
+button.filter-close {
+    width: 15px;
+    height: 20px;
+    padding: 0;
+    position: absolute;
+    right: 4px;
+    top: 4px;
+}
+
+div.filter-title h6 {
+	margin: 0 0 0.5em 0;
+}
+
+.links button.btn-filter {
+	padding: 0 1em 0 0;
+    margin-left: 1em;
+    font-size: 1em;
+}
+
+button.btn-filter {
+	float: right;
+}
+
+div.formLine label, div.formLine input {
+	display: inline-block;
+	padding: 0 8px;
+}
+
+.ui-grid {
+  border: 0;
+  height: auto;
+}
+
+.ui-grid-viewport {
+  height: 100% !important;
+  overflow: auto !important;
+}
+
+.ui-grid-row.ui-grid-row-selected > [ui-grid-row] > .ui-grid-cell {
+  background-color: #e0e0ff;
+}
+
+.gridStyle:not(.noHighlight) .ui-grid-row:hover .ui-grid-cell-contents,
+.grid:not(.noHighlight) .ui-grid-row:hover .ui-grid-cell-contents {
+	background-color: #EEE;
+}
+
+.ui-grid-top-panel {
+  background: inherit;
+}
+
