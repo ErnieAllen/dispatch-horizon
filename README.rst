@@ -24,7 +24,7 @@ If needed, set up your ``local_settings.py`` file::
 
 Install the dispatch dashboard in your horizon virtual environment::
 
-    tools/with_venv.sh pip install ../dispatch-plugin/dist/dispatch-0.0.1.tar.gz
+    ./tools/with_venv.sh pip install ../dispatch-plugin/dist/dispatch-0.0.1.tar.gz
 
 And enable it in Horizon::
 
@@ -36,6 +36,6 @@ If needed, compress the files::
 
 Run a server in the virtual environment::
 
-    ./tools/with-venv.sh python manage-py runserver 0.0.0.0:8080
+    ./tools/with-venv.sh python manage.py runserver 0.0.0.0:8080
 
 The horizon dashboard will be available in your browser at http://localhost:8080/
